@@ -1,0 +1,29 @@
+# Локальная разработка без nginx (frontend :3000, backend :8000)
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/main.py:/app/main.py:ro
+
+  frontend:
+    build:
+      context: ./frontend
+      target: deps
+    command: npm run dev
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend

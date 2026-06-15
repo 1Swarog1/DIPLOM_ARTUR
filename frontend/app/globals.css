@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 247, 248, 250;
+  --background-end-rgb: 247, 248, 250;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
