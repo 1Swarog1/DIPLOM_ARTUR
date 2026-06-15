@@ -233,7 +233,39 @@ artur_huesos/
 | CORS-ошибка в браузере | Добавьте origin в `CORS_ORIGINS`, перезапустите backend |
 | Frontend не видит API | В production `NEXT_PUBLIC_API_URL` должен быть **пустым**; пересоберите frontend |
 | Контейнер backend unhealthy | `docker compose logs backend` — ошибка импорта или порта |
+| Сборка frontend падает с `SIGKILL` | Нехватка RAM на VPS — добавьте swap (см. ниже) |
 | Сборка frontend падает | `docker compose build frontend --no-cache` и смотрите лог |
+
+### SIGKILL при `npm run build` (мало памяти на VPS)
+
+Ошибка `npm error signal SIGKILL` — Linux убивает процесс из‑за нехватки оперативной памяти.  
+На VPS с 512 MB–1 GB RAM сборка Next.js часто не проходит без swap.
+
+Проверка:
+
+```bash
+free -h
+```
+
+Добавить 2 GB swap (один раз на сервере):
+
+```bash
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+free -h
+```
+
+После swap пересоберите:
+
+```bash
+cd ~/DIPLOM_ARTUR
+git pull
+docker compose build frontend --no-cache
+docker compose up -d
+```
 
 Полезные команды:
 
