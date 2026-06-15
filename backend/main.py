@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Disable default docs to replace with Scalar
-app = FastAPI(docs_url=None, redoc_url=None, title="ARTUR HUESOS BACKEND")
+app = FastAPI(docs_url=None, redoc_url=None, title="ROSTELECOM BACKEND")
 
 # Configure CORS (comma-separated list in CORS_ORIGINS)
 _default_origins = "http://localhost:3000,http://127.0.0.1:3000,http://localhost,http://127.0.0.1"
@@ -30,7 +30,7 @@ app.add_middleware(
 async def scalar_html():
     return get_scalar_api_reference(
         openapi_url=app.openapi_url,
-        title="Rostelecom API",
+        title="ROSTELECOM BACKEND",
     )
 
 class EmailRequest(BaseModel):

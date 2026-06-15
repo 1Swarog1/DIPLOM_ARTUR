@@ -154,11 +154,11 @@ export default function CabinetPage() {
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <Link href="/cabinet" className="flex items-center gap-2 sm:gap-3 min-w-0">
               <Image
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Ростелеком"
                 width={96}
                 height={96}
-                className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover flex-shrink-0"
+                className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
               />
               <div className="min-w-0 flex items-center gap-2 sm:gap-4">
                 <span className="text-[#5D46C3] font-bold text-lg sm:text-xl md:text-2xl truncate">Ростелеком</span>

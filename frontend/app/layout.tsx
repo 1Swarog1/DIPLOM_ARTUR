@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Ростелеком - Личный кабинет",
   description: "Вход в личный кабинет Ростелеком",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

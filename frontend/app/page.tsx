@@ -101,11 +101,11 @@ export default function Home() {
       <header className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 max-w-7xl mx-auto w-full flex items-center">
         <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
           <Image
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="Ростелеком"
             width={96}
             height={96}
-            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover flex-shrink-0"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
           />
           <div className="text-[#5D46C3] font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">Ростелеком</div>
         </div>
